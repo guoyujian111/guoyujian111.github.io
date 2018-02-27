@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://aif.red/blog">
-  <title>yumserver | Aif&#39;S Blog</title>
+  <title>yumserver搭建 | Aif&#39;S Blog 永不止步</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="服务端配置上传完整版镜像创建挂载目录，挂载镜像mount -o loop xxx.iso /mnt复制 Packages、repodata 文件到本机仓库目录cp -r Packages repodata /localyum新建并配置repo文件vi /etc/yum.repos.d/localyum.repobaseurl=file:///localyum清空缓存yum clean all创建缓">
+<meta name="keywords" content="yum">
 <meta property="og:type" content="article">
-<meta property="og:title" content="yumserver">
+<meta property="og:title" content="yumserver搭建">
 <meta property="og:url" content="http://aif.red/blog/2017/12/22/yumserver/index.html">
-<meta property="og:site_name" content="Aif&#39;S Blog">
+<meta property="og:site_name" content="Aif&#39;S Blog 永不止步">
 <meta property="og:description" content="服务端配置上传完整版镜像创建挂载目录，挂载镜像mount -o loop xxx.iso /mnt复制 Packages、repodata 文件到本机仓库目录cp -r Packages repodata /localyum新建并配置repo文件vi /etc/yum.repos.d/localyum.repobaseurl=file:///localyum清空缓存yum clean all创建缓">
-<meta property="og:updated_time" content="2017-12-23T03:29:14.903Z">
+<meta property="og:image" content="http://aif.red/blog/2017/12/22/yumserver/yum.JPG">
+<meta property="og:updated_time" content="2017-12-25T06:16:29.012Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yumserver">
+<meta name="twitter:title" content="yumserver搭建">
 <meta name="twitter:description" content="服务端配置上传完整版镜像创建挂载目录，挂载镜像mount -o loop xxx.iso /mnt复制 Packages、repodata 文件到本机仓库目录cp -r Packages repodata /localyum新建并配置repo文件vi /etc/yum.repos.d/localyum.repobaseurl=file:///localyum清空缓存yum clean all创建缓">
+<meta name="twitter:image" content="http://aif.red/blog/2017/12/22/yumserver/yum.JPG">
   
-    <link rel="alternative" href="/atom.xml" title="Aif&#39;S Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Aif&#39;S Blog 永不止步" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -60,18 +63,12 @@
 			
 				<li><a href="/blog/">主页</a></li>
 	        
-				<li><a href="/blog/tags/随笔/">随笔</a></li>
-	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -82,13 +79,11 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/guoyujian111" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/aif-62/activities" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="mail" target="_blank" href="mailto:823372044@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -118,20 +113,16 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/guoyujian111" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/aif-62/activities" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="mail" target="_blank" href="mailto:823372044@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -140,9 +131,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/blog/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/blog/tags/随笔/">随笔</a></li>
+					<li style="width: 100%"><a href="/blog/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -164,7 +153,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      yumserver
+      yumserver搭建
     </h1>
   
 
@@ -177,36 +166,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>服务端配置<br>上传完整版镜像<br>创建挂载目录，挂载镜像<br>mount -o loop xxx.iso /mnt<br>复制 Packages、repodata 文件到本机仓库目录<br>cp -r Packages repodata /localyum<br>新建并配置repo文件<br>vi /etc/yum.repos.d/localyum.repo<br>baseurl=file:///localyum<br>清空缓存<br>yum clean all<br>创建缓存<br>yum makecache<br>安装插件<br>yum -y install yum-utils createrepo<br>安装Apache<br>yum -y install httpd<br>修改httpd配置文件<br>更改端口8080<br>引用虚拟主机配置文件<br>Include /vhosts.d/vhosts.conf(需要在/etc/httpd目录下新建并修改)<br>关闭selinux和firewalld<br>客户端配置<br>新建本地repo文件<br>vi /etc/yum.repos.d/localyum.repo<br>修改repo文件<br>baseurl=<a href="http://ip地址/yum" target="_blank" rel="noopener">http://ip地址/yum</a><br>清空缓存<br>yum clean all<br>创建缓存<br>yum makecache<br>注意事项<br>server端和客户机配置完成后，yum repolist 查看软件包数量，数量一样则证明安装成功<br>若客户机通过server端安装软件时，报出没有可用的软件包，则需要在server端下载相应软件包到仓库目录<br>然后重新清空、创建缓存，最后客户机清空、创建缓存后在重新安装。</p>
+        <p><img src="/blog/2017/12/22/yumserver/yum.JPG" alt="yum"><br>服务端配置<br>上传完整版镜像<br>创建挂载目录，挂载镜像<br>mount -o loop xxx.iso /mnt<br>复制 Packages、repodata 文件到本机仓库目录<br>cp -r Packages repodata /localyum<br>新建并配置repo文件<br>vi /etc/yum.repos.d/localyum.repo<br>baseurl=file:///localyum<br>清空缓存<br>yum clean all<br>创建缓存<br>yum makecache<br>安装插件<br>yum -y install yum-utils createrepo<br>安装Apache<br><a id="more"></a><br>yum -y install httpd<br>修改httpd配置文件<br>更改端口8080<br>引用虚拟主机配置文件<br>Include /vhosts.d/vhosts.conf(需要在/etc/httpd目录下新建并修改)<br>关闭selinux和firewalld<br>客户端配置<br>新建本地repo文件<br>vi /etc/yum.repos.d/localyum.repo<br>修改repo文件<br>baseurl=<a href="http://ip地址/yum" target="_blank" rel="noopener">http://ip地址/yum</a><br>清空缓存<br>yum clean all<br>创建缓存<br>yum makecache<br>注意事项<br>server端和客户机配置完成后，yum repolist 查看软件包数量，数量一样则证明安装成功<br>若客户机通过server端安装软件时，报出没有可用的软件包，则需要在server端下载相应软件包到仓库目录<br>然后重新清空、创建缓存，最后客户机清空、创建缓存后在重新安装。</p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">yum</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -271,6 +250,15 @@
   
 <nav id="article-nav">
   
+    <a href="/blog/2017/12/23/简要说明/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          简要说明
+        
+      </div>
+    </a>
+  
   
     <a href="/blog/2017/12/22/rsync-1/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">rsync安装</div>
@@ -316,14 +304,15 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Mr Guo
+    		&copy; 2018 Mr Guo
     	</div>
       	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      		<a href="http://www.aif.red">about me</a> by Mr Guo
       	</div>
     </div>
   </div>
 </footer>
+
     </div>
     <script>
 	var yiliaConfig = {
@@ -360,25 +349,17 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -399,6 +380,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mariadb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">openresty</a>
               </li>
              
@@ -407,7 +392,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">yum</a>
               </li>
             
             <div class="clearfix"></div>
@@ -453,10 +450,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-    	</section>
     
 
     

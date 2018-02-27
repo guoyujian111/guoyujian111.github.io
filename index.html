@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://aif.red/blog">
-  <title>Aif&#39;S Blog</title>
+  <title>Aif&#39;S Blog 永不止步</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Aif&#39;S Blog">
+<meta property="og:title" content="Aif&#39;S Blog 永不止步">
 <meta property="og:url" content="http://aif.red/blog/index.html">
-<meta property="og:site_name" content="Aif&#39;S Blog">
+<meta property="og:site_name" content="Aif&#39;S Blog 永不止步">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aif&#39;S Blog">
+<meta name="twitter:title" content="Aif&#39;S Blog 永不止步">
   
-    <link rel="alternative" href="/atom.xml" title="Aif&#39;S Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Aif&#39;S Blog 永不止步" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -56,18 +56,12 @@
 			
 				<li><a href="/blog/">主页</a></li>
 	        
-				<li><a href="/blog/tags/随笔/">随笔</a></li>
-	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -78,13 +72,11 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/guoyujian111" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/aif-62/activities" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="mail" target="_blank" href="mailto:823372044@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -114,20 +106,16 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/guoyujian111" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/aif-62/activities" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="mail" target="_blank" href="mailto:823372044@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -136,9 +124,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/blog/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/blog/tags/随笔/">随笔</a></li>
+					<li style="width: 100%"><a href="/blog/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -155,6 +141,298 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-shell学习知识点总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/01/28/shell学习知识点总结/">shell学习知识点总结</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2018/01/28/shell学习知识点总结/" class="archive-article-date">
+  	<time datetime="2018-01-28T12:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>脚本编写规范：<br>1.指明作者、时间、描述、说明<br>例：<br>    作者：郭玉健<br>    时间：2018-01-27<br>    描述：shell 练习<br>    说明：Mariadb自动部署脚本<br>2.为了将脚本写的简洁明了，将整体脚本拆分为入口文件、公共函数文件、自定义功能文件，分别是：<br>    main.sh common_func.sh func.sh<br>3.编写脚本首先要明确你的目标，将要完成的目标进行拆分，模块化进行编写。</p>
+<p>4.编写脚本之前，先定义好变量。<br>例子：自动化安装mariadb脚本<br>变量名建议全部大写（方便转化Python）<br></p>
+        
+          <a class="article-more-a" href="/blog/2018/01/28/shell学习知识点总结/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2018/01/28/shell学习知识点总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ubuntu搭建hexo博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/01/04/ubuntu搭建hexo博客/">ubuntu搭建hexo博客</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2018/01/04/ubuntu搭建hexo博客/" class="archive-article-date">
+  	<time datetime="2018-01-04T12:44:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/blog/2018/01/04/ubuntu搭建hexo博客/hexo.jpg" alt="hexo"><br>环境准备<br>Ubuntu系统16.04 64bit<br>安装nodejs<br>apt-get install -y nodejs<br>nodejs升级<br>npm cache clean -f<br>npm install -g n<br>n stable<br>安装git<br>apt-get -y install git-core<br>安装npm<br>apt-get -y install npm<br>安装nvm<br>apt-get -y install nvm<br>注意node为Windows称呼，Ubuntu里叫nodejs<br>如有nvm报错可：ln -s /usr/bin/nodejs /usr/bin/node<br></p>
+        
+          <a class="article-more-a" href="/blog/2018/01/04/ubuntu搭建hexo博客/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2018/01/04/ubuntu搭建hexo博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mariadb数据库入门及备份恢复实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/01/04/mariadb数据库入门及备份恢复实战/">mariadb数据库入门及备份恢复实战</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2018/01/04/mariadb数据库入门及备份恢复实战/" class="archive-article-date">
+  	<time datetime="2018-01-04T12:36:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/blog/2018/01/04/mariadb数据库入门及备份恢复实战/mariadb.jpg" alt="maraidb"><br>安装<br>系统：CentOS7.X<br>mariadb数据库版本：MariaDB 10.2<br>yum安装<br>准备工作：<br>删除现有的MariaDB 和Mysql包<br>rpm -qa | grep mariadb<br> rpm -qa | grep mysql-<em><br>yum  remove mariadb-libs-5.5.56-2.el7.x86_64<br></em></p>
+        
+          <a class="article-more-a" href="/blog/2018/01/04/mariadb数据库入门及备份恢复实战/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mariadb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2018/01/04/mariadb数据库入门及备份恢复实战/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="notice-简要说明" class="article article-type-notice  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2017/12/23/简要说明/">简要说明</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2017/12/23/简要说明/" class="archive-article-date">
+  	<time datetime="2017-12-23T11:19:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/blog/2017/12/23/简要说明/notice.PNG" alt="notice"><br>本博客仅做交流学习之用，欢迎大家访问！<br>因时间有限，本博客部分功能未开通，造成不便还请见谅！<br>本博客主题借用了大牛litten的博客分享，在此感谢！<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2017/12/23/简要说明/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="yum-yumserver" class="article article-type-yum  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -162,7 +440,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/12/22/yumserver/">yumserver</a>
+      <a class="article-title" href="/blog/2017/12/22/yumserver/">yumserver搭建</a>
     </h1>
   
 
@@ -175,8 +453,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>服务端配置<br>上传完整版镜像<br>创建挂载目录，挂载镜像<br>mount -o loop xxx.iso /mnt<br>复制 Packages、repodata 文件到本机仓库目录<br>cp -r Packages repodata /localyum<br>新建并配置repo文件<br>vi /etc/yum.repos.d/localyum.repo<br>baseurl=file:///localyum<br>清空缓存<br>yum clean all<br>创建缓存<br>yum makecache<br>安装插件<br>yum -y install yum-utils createrepo<br>安装Apache<br>yum -y install httpd<br>修改httpd配置文件<br>更改端口8080<br>引用虚拟主机配置文件<br>Include /vhosts.d/vhosts.conf(需要在/etc/httpd目录下新建并修改)<br>关闭selinux和firewalld<br>客户端配置<br>新建本地repo文件<br>vi /etc/yum.repos.d/localyum.repo<br>修改repo文件<br>baseurl=<a href="http://ip地址/yum" target="_blank" rel="noopener">http://ip地址/yum</a><br>清空缓存<br>yum clean all<br>创建缓存<br>yum makecache<br>注意事项<br>server端和客户机配置完成后，yum repolist 查看软件包数量，数量一样则证明安装成功<br>若客户机通过server端安装软件时，报出没有可用的软件包，则需要在server端下载相应软件包到仓库目录<br>然后重新清空、创建缓存，最后客户机清空、创建缓存后在重新安装。</p>
-
+        <p><img src="/blog/2017/12/22/yumserver/yum.JPG" alt="yum"><br>服务端配置<br>上传完整版镜像<br>创建挂载目录，挂载镜像<br>mount -o loop xxx.iso /mnt<br>复制 Packages、repodata 文件到本机仓库目录<br>cp -r Packages repodata /localyum<br>新建并配置repo文件<br>vi /etc/yum.repos.d/localyum.repo<br>baseurl=file:///localyum<br>清空缓存<br>yum clean all<br>创建缓存<br>yum makecache<br>安装插件<br>yum -y install yum-utils createrepo<br>安装Apache<br></p>
+        
+          <a class="article-more-a" href="/blog/2017/12/22/yumserver/#more">more >></a>
+        
       
 
       
@@ -184,6 +464,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">yum</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -391,7 +682,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/blog/2017/12/22/openresty实战/web.png" alt="web"><br>核心：Nginx核心<br>安装<br>yum -y install yum-utils(包含yum-config-manager软件包)<br>yum-config-manager –add-repo <a href="https://openresty.org/yum/cn/centos/OpenResty.repo" target="_blank" rel="noopener">https://openresty.org/yum/cn/centos/OpenResty.repo</a><br>配置文件：/usr/local/openresty/nginx/conf/nginx.conf<br>网站存放目录：/usr/local/openresty/nginx/html/<br>启动：systemctl start openresty<br>检查配置：openresty -t<br>重启：openresty -s reload<br>创建本地ssl证书访问HTTPS站点：<br>检查openresty是否安装https模块<br>Nginx -V：–with-http_ssl_module<br></p>
+        <p><img src="/blog/2017/12/22/openresty实战/web.png" alt="web"><br>核心：Nginx核心<br>安装<br>yum -y install yum-utils(包含yum-config-manager软件包)<br>yum-config-manager –add-repo <a href="https://openresty.org/yum/cn/centos/OpenResty.repo" target="_blank" rel="noopener">https://openresty.org/yum/cn/centos/OpenResty.repo</a><br>配置文件：/usr/local/openresty/nginx/conf/nginx.conf<br>网站存放目录：/usr/local/openresty/nginx/html/<br>启动：systemctl start openresty<br>检查配置：openresty -t<br>重启：openresty -s reload<br></p>
         
           <a class="article-more-a" href="/blog/2017/12/22/openresty实战/#more">more >></a>
         
@@ -447,68 +738,6 @@
 
 
   
-    <article id="the-blog" class="article article-type-the  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/12/22/blog/">blog</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2017/12/22/blog/" class="archive-article-date">
-  	<time datetime="2017-12-22T05:22:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/2017/12/22/blog/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -519,14 +748,15 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Mr Guo
+    		&copy; 2018 Mr Guo
     	</div>
       	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      		<a href="http://www.aif.red">about me</a> by Mr Guo
       	</div>
     </div>
   </div>
 </footer>
+
     </div>
     <script>
 	var yiliaConfig = {
@@ -563,25 +793,17 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -602,6 +824,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mariadb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">openresty</a>
               </li>
              
@@ -610,7 +836,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">yum</a>
               </li>
             
             <div class="clearfix"></div>
@@ -656,10 +894,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-    	</section>
     
 
     
