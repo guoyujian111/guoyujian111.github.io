@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="Stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="Stylesheet" type="text/css" href="/static/css/tango.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+    <title>ansible - GC的个人WiKi</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+
+  <body>
+    <div id="container">
+      
+<div id="header">
+  <div class="post-nav"><a href="/">Home</a>&nbsp;&#187;&nbsp;<a href="/#Linux">Linux</a>&nbsp;&#187;&nbsp;ansible
+    <span class="updated">Page Updated&nbsp;
+      2018-03-13 14:03
+    </span></div>
+</div>
+<div class="clearfix"></div>
+
+<div class="page_title">ansible</div>
+
+  <h4 id="ansible">Ansible官网定义 ：</h4>
+<p><a href="http://docs.ansible.com/ansible/index.html">Simple, agentless and powerful open source IT automation.</a>，由此看出ansible定位是一个自动化管理工具。<br />
+目前主流的四种自动化运维工具：<br />
+<img alt="9WQWNQ.jpg" src="https://s1.ax1x.com/2018/03/11/9WQWNQ.jpg" /><br />
+我个人偏好于使用ansible，因其风格精简、快速，如果是管理&lt;100的主机，用ansible足以。</p>
+<h4 id="ansible_1">Ansible 特点：</h4>
+<ul>
+<li>
+<p>ansible是一个基于Python开发的自动化运维工具</p>
+</li>
+<li>
+<p>其功能实现基于SSH远程连接服务</p>
+</li>
+<li>
+<p>ansible可以实现批量系统配置、批量软件部署、批量文件拷贝、批量运行命令等功能</p>
+</li>
+<li>
+<p>不需要安装客户端，基于系统自带的sshd服务，sshd就相当于ansible的客户端</p>
+</li>
+<li>
+<p>不需服务端</p>
+</li>
+<li>
+<p>需要依靠大量的模块实现批量管理功能</p>
+</li>
+</ul>
+<h4 id="ansible_2">Ansible基本使用 ：</h4>
+<p>安装： yum install ansible -y  （Centos Redhat）<br />
+主机要求：Python版本，2.6或更高版本<br />
+配置文件：/etc/ansible/ansible.cfg  主机文件：/etc/ansible/hosts</p>
+<h4 id="_1">安装完成后的简单配置：</h4>
+<p>1、添加自定义主机组[node]，这里加入了三台测试机</p>
+<div class="hlcode"><pre><span class="k">[node]</span>
+<span class="na">192.168.2.237 ansible_ssh_pass</span><span class="o">=</span><span class="s">123123</span>
+<span class="na">192.168.2.238 ansible_ssh_pass</span><span class="o">=</span><span class="s">123123</span>
+<span class="na">192.168.2.239 ansible_ssh_pass</span><span class="o">=</span><span class="s">123123</span>
+</pre></div>
+
+
+<p>2、配置免秘钥登录<br />
+由于Ansible是通过ssh进行通讯的，所以需要配置本地主机到远程服务器的ssh自动登录。<br />
+生成秘钥对： ssh-keygen -t rsa<br />
+推送单个公钥到远程机器<br />
+格式： ssh-copy-id -i ~/.ssh/id_rsa.pub username@[ip,hostname]<br />
+例：ssh-copy-id -i ~/.ssh/id_rsa.pub username@192.168.100.2</p>
+<p>生产环境中，主机数多，如100台机器，用ssh-copy-id方法有些费时，因此需要批量推送秘钥。</p>
+<h4 id="_2">批量推送秘钥的方法：</h4>
+<p>利用ansible 的playbook编写 yml文件<br />
+vim ssh-add.yml  使用ansible自带的authorized_key 模块实现<br />
+剧本编写格式：（一定要注意有空格）</p>
+<h1 id="play-book">play-book #注释</h1>
+<ul>
+<li>hosts:空格all   指定演员信息，这里all指处理所有服务器，也可以指定某一台，接ip地址**<br />
+空格空格tasks:<br />
+空格空格空格空格- command:空格echo hello </li>
+</ul>
+<div class="hlcode"><pre><span class="o">-</span> <span class="n">hosts</span><span class="o">:</span> <span class="n">node</span> <span class="err">（主机文件里定义的模块名称）</span>
+  <span class="nl">remote_user:</span> <span class="n">root</span>
+
+  <span class="nl">tasks:</span>
+  <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">copy</span> <span class="n">ssh</span> <span class="n">key</span>
+    <span class="nl">authorized_key:</span>  <span class="n">user</span><span class="o">=</span><span class="n">root</span> <span class="n">key</span><span class="o">=</span><span class="s">&quot;{{ lookup(&#39;file&#39;, &#39;/root/.ssh/id_rsa.pub&#39;) }}&quot;</span>
+</pre></div>
+
+
+<p>编写完yml文件后，执行命令</p>
+<div class="hlcode"><pre><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span>  <span class="n">ssh</span><span class="o">-</span><span class="n">add</span><span class="p">.</span><span class="n">yml</span>
+</pre></div>
+
+
+<p>注意：批量推完后秘钥后，执行命令测试成功后，这时再次登录就不需要密码了，需要将/etc/ansible/hosts文件了的密码信息清除，保障安全。</p>
+<p>playbook学习：<a href="http://www.ansible.com.cn/docs/playbooks.html">http://www.ansible.com.cn/docs/playbooks.html</a></p>
+<div class="hlcode"><pre><span class="k">[node]</span>
+
+<span class="err">192.168.2.237</span>
+<span class="err">192.168.2.238</span>
+<span class="err">192.168.2.239</span>
+</pre></div>
+
+
+<p>查看测试机的时间：<br />
+ansible node  -m command -a "date"<br />
+格式：ansible 操作目标 -m 模块名 -a 模块参数</p>
+<div class="hlcode"><pre><span class="mf">192.168.2.238</span> <span class="o">|</span> <span class="n">SUCCESS</span> <span class="o">|</span> <span class="n">rc</span><span class="o">=</span><span class="mi">0</span> <span class="o">&gt;&gt;</span>
+<span class="mi">2018</span><span class="err">年</span> <span class="mo">03</span><span class="err">月</span> <span class="mi">11</span><span class="err">日</span> <span class="err">星期日</span> <span class="mo">03</span><span class="o">:</span><span class="mi">09</span><span class="o">:</span><span class="mi">23</span> <span class="n">CST</span>
+
+<span class="mf">192.168.2.239</span> <span class="o">|</span> <span class="n">SUCCESS</span> <span class="o">|</span> <span class="n">rc</span><span class="o">=</span><span class="mi">0</span> <span class="o">&gt;&gt;</span>
+<span class="mi">2018</span><span class="err">年</span> <span class="mo">03</span><span class="err">月</span> <span class="mi">11</span><span class="err">日</span> <span class="err">星期日</span> <span class="mo">03</span><span class="o">:</span><span class="mi">09</span><span class="o">:</span><span class="mi">17</span> <span class="n">CST</span>
+
+<span class="mf">192.168.2.237</span> <span class="o">|</span> <span class="n">SUCCESS</span> <span class="o">|</span> <span class="n">rc</span><span class="o">=</span><span class="mi">0</span> <span class="o">&gt;&gt;</span>
+<span class="mi">2018</span><span class="err">年</span> <span class="mo">03</span><span class="err">月</span> <span class="mi">11</span><span class="err">日</span> <span class="err">星期日</span> <span class="mo">03</span><span class="o">:</span><span class="mi">09</span><span class="o">:</span><span class="mi">23</span> <span class="n">CST</span>
+</pre></div>
+
+
+<h4 id="_3">常用模块：</h4>
+<p><img alt="9W19Rs.jpg" src="https://s1.ax1x.com/2018/03/11/9W19Rs.jpg" /></p>
+<p>模块的具体用法，可以参照官方网站<a href="http://docs.ansible.com/ansible/latest/modules_by_category.html">http://docs.ansible.com/ansible/latest/modules_by_category.html</a></p>
+<p><img alt="9W1EZT.jpg" src="https://s1.ax1x.com/2018/03/11/9W1EZT.jpg" /></p>
+<p>ansible 、saltstack 都是基于Python开发的，GitHub上有多自动化运维平台项目是基于ansible、saltstack核心进行封装，因此学习Python势在必行。。。。。<br />
+<img alt="9W1uW9.jpg" src="https://s1.ax1x.com/2018/03/11/9W1uW9.jpg" /></p>
+    </div>
+    <div id="footer">
+      <span>
+        <p>Copyright © 2018 GC.
+        Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
+        <p>Site Generated 2018-03-13 14:12:25</p>
+      </span>
+    </div>
+
+    
+    
+  </body>
+</html>
