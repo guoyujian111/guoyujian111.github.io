@@ -79,13 +79,22 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="Pike 版 Placement bug 案例 问题描述：因要停机维护物理机，为不影响虚机业务，将虚机热迁移到其他节点报错：“No valid host was found ”。因为我是定点迁移，所以目标节点的资源是足够的，排除资源不够导致报错的可能性，查看日志有如下报错：  截图中红色标注的意思是多，有个虚机已经移动到compute10节点了，但是之前的所在的原节点的资源并没有释放。因此要解决这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Placement Bug">
+<meta property="og:url" content="http://yoursite.com/2020/07/14/Placement-Bug/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Pike 版 Placement bug 案例 问题描述：因要停机维护物理机，为不影响虚机业务，将虚机热迁移到其他节点报错：“No valid host was found ”。因为我是定点迁移，所以目标节点的资源是足够的，排除资源不够导致报错的可能性，查看日志有如下报错：  截图中红色标注的意思是多，有个虚机已经移动到compute10节点了，但是之前的所在的原节点的资源并没有释放。因此要解决这">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/95634/1575012662226-78d9a995-e767-4c24-bd69-89995bf19078.png#align=left&display=inline&height=133&name=%E6%88%AA%E5%B1%8F2019-11-29%E4%B8%8B%E5%8D%882.25.22.png&originHeight=508&originWidth=2850&size=378141&status=done&style=none&width=746">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/95634/1575012995061-521ef92e-fffd-4d02-8156-8410e44af369.png#align=left&display=inline&height=282&name=%E6%88%AA%E5%B1%8F2019-11-29%E4%B8%8B%E5%8D%882.26.46.png&originHeight=282&originWidth=2384&size=109563&status=done&style=none&width=2384">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/95634/1575013108507-41597a63-3331-4bc3-a2ae-f9c46e6116b3.png#align=left&display=inline&height=439&name=%E6%88%AA%E5%B1%8F2019-11-29%E4%B8%8B%E5%8D%882.26.53.png&originHeight=439&originWidth=750&size=144695&status=done&style=none&width=750">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/95634/1575013459167-ad6a02ea-64f0-45fc-ba71-8ceb3c047eae.png#align=left&display=inline&height=254&name=%E6%88%AA%E5%B1%8F2019-11-29%E4%B8%8B%E5%8D%882.34.16.png&originHeight=254&originWidth=2272&size=84647&status=done&style=none&width=2272">
+<meta property="article:published_time" content="2020-07-14T01:08:55.000Z">
+<meta property="article:modified_time" content="2020-07-14T01:09:43.651Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2019/png/95634/1575012662226-78d9a995-e767-4c24-bd69-89995bf19078.png#align=left&display=inline&height=133&name=%E6%88%AA%E5%B1%8F2019-11-29%E4%B8%8B%E5%8D%882.25.22.png&originHeight=508&originWidth=2850&size=378141&status=done&style=none&width=746">
 
 
 
@@ -115,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/07/14/Placement-Bug/"/>
 
 
 
 
 
-  <title>Hexo</title>
+  <title>Placement Bug | Hexo</title>
   
 
 
@@ -140,8 +149,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +222,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +254,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/14/Placement-Bug/" itemprop="url">Placement Bug</a></h1>
+          <h1 class="post-title" itemprop="name headline">Placement Bug</h1>
         
 
         <div class="post-meta">
@@ -298,9 +304,7 @@
       
 
       
-        
-          
-            <h1 id="Pike-版-Placement-bug-案例"><a href="#Pike-版-Placement-bug-案例" class="headerlink" title="Pike 版 Placement bug 案例"></a>Pike 版 Placement bug 案例</h1><p><a name="MSh2I"></a></p>
+        <h1 id="Pike-版-Placement-bug-案例"><a href="#Pike-版-Placement-bug-案例" class="headerlink" title="Pike 版 Placement bug 案例"></a>Pike 版 Placement bug 案例</h1><p><a name="MSh2I"></a></p>
 <h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>因要停机维护物理机，为不影响虚机业务，将虚机热迁移到其他节点报错：“No valid host was found ”。<br />因为我是定点迁移，所以目标节点的资源是足够的，排除资源不够导致报错的可能性，查看日志有如下报错：</p>
 <p><img src="https://cdn.nlark.com/yuque/0/2019/png/95634/1575012662226-78d9a995-e767-4c24-bd69-89995bf19078.png#align=left&display=inline&height=133&name=%E6%88%AA%E5%B1%8F2019-11-29%E4%B8%8B%E5%8D%882.25.22.png&originHeight=508&originWidth=2850&size=378141&status=done&style=none&width=746" alt="截屏2019-11-29下午2.25.22.png"></p>
 <p>截图中红色标注的意思是多，有个虚机已经移动到compute10节点了，但是之前的所在的原节点的资源并没有释放。因此要解决这个问题，需要想办法释放被占用的资源。</p>
@@ -315,8 +319,6 @@
 <h4 id=""><a href="#" class="headerlink" title=""></a></h4><p><a name="lQdIA"></a></p>
 <h4 id="Placement"><a href="#Placement" class="headerlink" title="Placement"></a>Placement</h4><p>官方的定义：让用户和代码能够便捷的使用、管理、监控整个 OpenStack 的系统资源，这就是 Placement（布局）。<br />Placement最早在Newton版本中被引入，而在Pike版本中，Placement API服务是被要求强制启动的，否则的话你的nova-compute service是无法正常运行的。在Stein版本中，Placement成为独立项目，并发布第一个正式版本1.0.0</p>
 
-          
-        
       
     </div>
     
@@ -333,166 +335,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/13/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-13T20:00:19+08:00">
-                2020-07-13
-              </time>
+              <a href="/2020/07/13/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web%E5%AE%89%E5%85%A8/" itemprop="url" rel="index">
-                    <span itemprop="name">Web安全</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -502,10 +366,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -513,6 +378,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -533,8 +402,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -585,6 +463,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pike-版-Placement-bug-案例"><span class="nav-number">1.</span> <span class="nav-text">Pike 版 Placement bug 案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述："><span class="nav-number">1.0.0.1.</span> <span class="nav-text">问题描述：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#这里先贴解决过程："><span class="nav-number">1.0.0.2.</span> <span class="nav-text">这里先贴解决过程：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">1.0.0.3.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Placement"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">Placement</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -718,6 +612,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
